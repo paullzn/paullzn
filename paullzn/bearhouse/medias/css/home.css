@@ -19,14 +19,17 @@ ul li a:hover{color: #FFFFFF}
 #main{ margin: 20px 40px 20px 40px; height: 500px;}
 #dashboard{height: 200px;}
 #detail_dashboard{width: 100%}
-#left_dashboard{float: left; width: 50%;}
-#v_hr{float: left; height: 300px; width:2px;}
-#right_dashboard{float: left; width: 50%;}
+#left_dashboard{float: left; position:relative; width: 49%;}
+#v_hr{float: left; height: 300px; position:relative; width:1px;}
+#right_dashboard{float: left; position:relative;  width: 49%;}
 
 
 #footer{ margin: 0 auto; text-align: center; color: #444444}
 #footer a{color: #444444; font-size: 12px;}
 p{
     padding: 10px 20px;
+    color: #444444;
+}
+a,b{
     color: #444444;
 }

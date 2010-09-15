@@ -4,6 +4,7 @@ from django.template import Context, loader
 import os
 
 def index(request):
-    t = loader.get_template('album/index.html')
+    t = loader.get_template('lab/index.html')
     c = Context({'author': 'Paullzn'})
     return HttpResponse(t.render(c), mimetype="application/xhtml+xml")
+
