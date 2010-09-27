@@ -1,0 +1,4 @@
+cron:
+- description: Heart Beat Test for Lives3
+  url: /lives3/
+  schedule: every 10 minutes
