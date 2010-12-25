@@ -22,7 +22,7 @@ def startTest(url):
     #    print url+" is alive..."
     #result = urllib2.urlopen(url)
     count = 0
-    tryCount = 5
+    tryCount = 3
     
     while tryCount > 0:
         result = None
@@ -32,9 +32,9 @@ def startTest(url):
         except:
             count += 1    
         tryCount -= 1
-    if count > 3:
+    if count > 2:
         timeStr = time.strftime("[%Y/%m/%d, %H:%M:%S (+8:00) %a]", time.gmtime(time.time()+8*3600))
-        print "An alert email for "+url+" has been send at "+timeStr
+        print "An alert email for "+url+" has been send at "+timeStr + "  " + str(count)
         sendAlert(url, timeStr)
     else:
         print url+" is alive..."
@@ -46,6 +46,7 @@ def sendAlert(url, timeStr):
     msg['Subject'] = "Lives3 Heart Beat Alert"
     msg['From'] = "alert@heartbeattest.appspotmail.com"
     msg['To'] = "paullzn@gmail.com,liyuqian79@gmail.com,lywander@gmail.com"
+    #msg['To'] = "paullzn@gmail.com"
 
     body = "[Do Not Reply]\nThis is an alert from Heart-Beat-Test service.\n"
     body += "HBT haven't got any response from " + url
