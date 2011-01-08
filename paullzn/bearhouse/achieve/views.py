@@ -6,5 +6,5 @@ import os
 def index(request):
     t = loader.get_template('achieve/index.html')
     c = Context({'author': 'Paullzn'})
-    return HttpResponse(t.render(c), mimetype="application/xhtml+xml")
+    return HttpResponse(t.render(c), mimetype="text/html")
 

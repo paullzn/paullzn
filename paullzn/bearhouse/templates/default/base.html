@@ -8,7 +8,10 @@
 	{% block title%}<title>Paullzn</title> {% endblock %}
 	<meta name="Keywords" content="Paullzn" /> 
 	<meta name="Description" content="Paullzn, personal web site. Blog, Album, Lab" />
-    {% block stylesheets %}<link rel="stylesheet" href="/medias/css/home.css" type="text/css" />{% endblock %}
+    {% block stylesheets %}
+    <link rel="stylesheet" href="/medias/css/home.css" type="text/css" />
+    <link rel="stylesheet" href="/medias/css/about.css" type="text/css" />
+    {% endblock %}
 </head>
 <body id="home">
     {% block header%}
@@ -23,20 +26,8 @@
                 <li id="gn-home">
                     <a href="/">Home</a>
                 </li>
-                <li id="gn-bear">
-                    <a href="/littlebear">Little Bear</a>
-                </li>
-                <li id="gn-lab">
-                    <a href="/lab">Lab</a>
-                </li>
                 <li id="gn-blog">
                     <a href="/blog">Blog</a>
-                </li>
-                <li id="gn-album">
-                    <a href="/album">Album</a>
-                </li>
-                <li id="gn-achieve">
-                    <a href="/achieve">Achieve</a>
                 </li>
                 <li id="gn-achieve">
                     <a href="/about">About</a>
@@ -58,7 +49,6 @@
             <div id="right_dashboard">
             </div>
         </div>
-        
     </div>
     {% endblock %}
     {% block footer %}

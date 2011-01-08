@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^album/', include('bearhouse.album.urls')),
     (r'^achieve/', include('bearhouse.achieve.urls')),
     (r'^about/', include('bearhouse.about.urls')),
+    (r'^api/', include('bearhouse.api.urls')),
     (r'^medias/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.dirname(__file__) +'/medias'}),
     # Uncomment this for admin:
     # (r'^admin/', include('django.contrib.admin.urls')),
