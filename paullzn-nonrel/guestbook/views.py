@@ -31,7 +31,7 @@ def create_greeting(request):
             greeting.author = 'anonymous'
         greeting.save()
         cache.delete('greetings')
-    return HttpResponseRedirect('/guestbook/')
+    return HttpResponseRedirect('/greeting/')
   
     
 def create_greeting(request):
@@ -46,4 +46,4 @@ def create_greeting(request):
                 greeting.author = 'anonymous'
             greeting.save()
             cache.delete('greetings')
-    return HttpResponseRedirect('/guestbook/')
+    return HttpResponseRedirect('/greeting/')
