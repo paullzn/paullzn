@@ -1,33 +1,76 @@
-<html>
-    <body>Hello
-{% if user.is_authenticated %}
-    {{ user.username }}!
-    [<a href="{% url django.contrib.auth.views.logout %}"><b>sign out</b></a>]
-{% else %}
-    World!
-    [<a href="{% url django.contrib.auth.views.login %}"><b>sign in</b></a>]
-{% endif %}
+{% extends "default/base.html" %}
+{% block title %}<title>Greeting</title>{% endblock %}
+{% block main %}
 
-    <h2>Top 10 Most Recent Guestbook Entries</h2>
-
-    {% for greeting in greetings %}
-    <br>
-    <small>[<i>{{ greeting.date.ctime }}</i>]</small>
-    <b>
-    {% if greeting.author %}
-        <code>{{ greeting.author.username }}</code>
-    {% else %}
-        <i>anonymous</i>
-    {% endif %}
-    </b>
-    wrote:
-        {{ greeting.content }}
-    {% endfor %}
-
-    <hr>
-    <form action="/guestbook/sign" method="post">{% csrf_token %}
-        <table>{{ form }}</table>
-        <input type="submit" value="Sign Guestbook" />
-    </form>
-    </body>
-</html>
+	<div iv id="detail_dashboard">
+	 	<div id="left_side">
+			<p>
+				<img src="/media/images/he.jpg"/>
+			</p>
+			<p>I'm Paullzn, @Beijing.</p>
+			<p>
+				<b>Email</b><br/>
+				<a>paullzn /@/ gmail \.\ com</a>
+			</p>
+			<p>
+				<b>About</b><br/>
+					Senior student,<br>Department of Computer Science and Technology,<br>Tsinghua University.
+			</p>
+			<p>
+				<b>Interests</b><br/>
+				Web, Hiphop dancing, Movie, KTV...
+			</p>
+		</div>
+		<hr id="l_v_hr" class="v_hr"/>
+		<div id="greeting"/>
+	    	<h2>Welcome my friends</h2>
+			<hr>
+			<p id="greetings">
+	    	{% for greeting in greetings %}
+			    <br>
+			    <small>[<i>{{ greeting.date.ctime }}</i>]</small>
+			    <b>
+			        <i>{{ greeting.author }}</i>
+			    </b>
+			    wrote:
+			        {{ greeting.content }}
+		    {% endfor %}
+			</p>
+		    <hr>
+			<a>Please leave your message here.</a>
+		    <form action="/guestbook/sign" method="post">{% csrf_token %}
+	    	    <table cellpadding="10" >
+					<tr>
+						<th width="20%">Comment:</th>
+						<td><textarea rows="4" name="content"></textarea></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td><input type="submit" value="Submit" /></td>
+				</table>
+		        
+		    </form>
+		</div>
+		<hr id="r_v_hr" class="v_hr"/>
+		<div id="right_side">
+			<p>
+				<img src="/media/images/she.jpg"/>
+			</p>
+			<p><b>Name</b><br/>I'm Lisa, @Beijing</p>
+			<p>
+				<b>Email</b><br/>
+				<a>kongly0320 /@/ gmail \.\ com</a>
+			</p>
+			<p>
+				<b>About</b><br/>
+				Sophomore student,<br>School of Journalism and Communication,<br>Tsinghua University.
+			</p>
+			<p>
+				<b>Interests</b><br/>
+					Food, Books, Newspaper...
+			</p>
+		</div>
+	</div>
+	
+	<script type="javascript"></script>	
+{% endblock %}

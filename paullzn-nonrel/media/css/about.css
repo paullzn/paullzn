@@ -1,0 +1,16 @@
+
+#detail_dashboard {position: relative; width: 100%;}
+#left_side{position: absolute; left: 0px; width: 220px;}
+#l_v_hr{position: absolute; left: 220px; width: 1px;}
+#r_v_hr{position: absolute; right: 220px; width: 1px;}
+#right_side{position: absolute; right: 0px; top:0px; width: 220px;}
+
+#greeting {position: absolute; left: 230px; right: 230px;}
+#greeting a {margin-left: 20px;}
+#greeting table { margin: 10px 20px 10px 20px;}
+#greeting table td,#greeting table th{vertical-align: top; 
+		padding: 0px 5px 0px 5px; text-align:right;}
+#greeting table textarea { width: 100%; border-color: #bbb;
+		-webkit-box-shadow: white 0px 1px;}
+#greeting table textarea:hover { border-color: #999;}
+#greetings { min-height: 300px;}

@@ -1,0 +1,27 @@
+
+*,ul,li { margin: 0; padding: 0}
+body { min-width: 1000px;}
+p { padding: 10px 20px; color: #444444;}
+a,b,h3,h2,th,td{ color: #444;}
+
+#titleheader { height: 60px; width: 100%; background-color: #A4A4A4; border-bottom: solid 1px #666;}
+#titleheader p { float:right; margin-top: 20px;}
+#titleheader a:hover {color: #222;}
+#title { position:absolute; left: 40px; top: 15px; text-align: center; color: #333;}
+#title-descrip { position:absolute; left: 250px; top: 30px; color: #444}
+
+#globalnavbar { position:relative; width: 100%; height: 25px; background-color: #BDBDBD}
+#globalnav { position:absolute; left: 250px; height: 25px; list-style-type: none; line-height: 25px; width: 500px; padding:0px; text-align:center}
+#globalnav li{ float: left; position:relative;}
+#globalnav li a{ display:block; text-decoration: none; width: 120px; color:#444;}
+#globalnav li:hover { background-color: #808080;}
+#globalnav li a:hover{color: #FFF}
+
+#main{ margin: 20px 20px 20px 20px; min-height: 500px;}
+
+#dashboard{height: 200px;}
+.v_hr{float: left; min-height: 500px; position:relative; width:0px;}
+
+#footer{ margin: 0 auto; text-align: center;}
+#footer a{font-size: 12px;}
+

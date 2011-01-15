@@ -1,0 +1,20 @@
+{% extends "default/base.html" %}
+{% block title %}<title>Login</title>{% endblock %}
+{% block main %}
+	<fieldset id="login">
+		<legend>Login</legend>
+		<form action='/auth/login_do'>
+			<table>
+				<tr>
+					<th width="30%" >UserName:</th><td><input type='text' name='name'/></td>
+				</tr>
+				<tr>
+					<th>Password:</th><td><input type='password' name='password'/></td>
+				</tr>
+				<tr>
+					<th></th><td><input type='submit' value="Login"/></td>
+				</tr>
+			</table>
+		</form>
+	</fieldset>
+{% endblock %}

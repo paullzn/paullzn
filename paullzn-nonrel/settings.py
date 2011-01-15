@@ -8,9 +8,7 @@ import os
 SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.contenttypes',
-    'django.contrib.auth',
     'django.contrib.sessions',
     'djangotoolbox',
     'guestbook',
@@ -22,7 +20,6 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

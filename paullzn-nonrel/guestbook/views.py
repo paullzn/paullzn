@@ -10,8 +10,14 @@ def list_greetings(request):
     #if greetings is None:
     greetings = Greeting.objects.all().order_by('-date')[:10]
         #cache.add(MEMCACHE_GREETINGS, greetings)
+
+    try:
+        username = request.session['user']
+    except KeyError:
+	    username = 'anonymous'
+
     return direct_to_template(request, 'guestbook/index.html',
-        {'greetings': greetings, 'form': CreateGreetingForm()})
+        {'username': username, 'greetings': greetings, 'form': CreateGreetingForm()})
 
 from django.http import HttpResponseRedirect
         
@@ -19,8 +25,10 @@ def create_greeting(request):
     if request.method == 'POST':
         greeting = Greeting()
         greeting.content = request.POST.get('content')
-        if request.user.is_authenticated():
-            greeting.author = request.user
+        try:
+            greeting.author = request.session['user']
+        except KeyError:
+            greeting.author = 'anonymous'
         greeting.save()
         cache.delete('greetings')
     return HttpResponseRedirect('/guestbook/')
@@ -32,8 +40,10 @@ def create_greeting(request):
         form = CreateGreetingForm(request.POST)
         if form.is_valid():
             greeting = form.save(commit=False)
-            if request.user.is_authenticated():
-                greeting.author = request.user
+            try:
+                greeting.author = request.session['user']
+            except KeyError:
+                greeting.author = 'anonymous'
             greeting.save()
             cache.delete('greetings')
     return HttpResponseRedirect('/guestbook/')
