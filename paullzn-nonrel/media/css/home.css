@@ -1,6 +1,6 @@
 
 *,ul,li { margin: 0; padding: 0}
-body { min-width: 1000px;}
+body { min-width: 1000px; font: normal normal normal 13px/1.5 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;}
 p { padding: 10px 20px; color: #444444;}
 a,b,h3,h2,th,td{ color: #444;}
 

@@ -41,6 +41,7 @@ ROOT_URLCONF = 'urls'
 
 SITE_ID = 29
 
+TIME_ZONE = 'America/Chicago'
 # Activate django-dbindexer if available
 try:
     import dbindexer
