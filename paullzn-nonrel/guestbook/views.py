@@ -39,8 +39,6 @@ def create_greeting(request):
 		return HttpResponseRedirect('/greeting/')
 
 	if not greeting.author == 'anonymous':
-		d = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-		greeting.date = d
 		greeting.save()
 	
 	cache.delete('greetings')
