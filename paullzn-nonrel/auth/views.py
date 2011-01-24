@@ -27,7 +27,7 @@ def register(request):
 	return direct_to_template(request, 'auth/register.html', {})
 
 def login(request):
-	return direct_to_template(request, 'auth/login.html', {})
+	return direct_to_template(request, 'auth/login.html', {'page' : 'login'})
 
 def login_do(request):
 	user = User.objects.all().filter(username=request.GET.get('name')).filter(password=request.GET.get('password'))

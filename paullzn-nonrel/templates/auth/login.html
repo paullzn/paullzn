@@ -1,7 +1,7 @@
 {% extends "default/base.html" %}
 {% block title %}<title>Login</title>{% endblock %}
 {% block main %}
-	<fieldset id="login">
+	<fieldset id="{{page}}-p">
 		<legend>Login</legend>
 		<form action='/auth/login_do'>
 			<table>

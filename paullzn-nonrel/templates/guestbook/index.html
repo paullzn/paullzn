@@ -2,7 +2,7 @@
 {% block title %}<title>Greeting</title>{% endblock %}
 {% block main %}
 
-	<div iv id="detail_dashboard">
+	<div iv id="{{page}}-p">
 	 	<div id="left_side">
 			<p>
 				<img src="/media/images/he.jpg"/>
@@ -28,8 +28,12 @@
 			<p id="greetings">
 	    	{% for greeting in greetings %}
 			    <br>
-			    <small>[<i>{{ greeting.date }}</i>]</small>
-			    <b>
+				{% if greeting.isprivate == 1 %}		    
+					<small>[<b>{{ greeting.date }}</b>]</small>
+				{% else %}
+					<small>[<i>{{ greeting.date }}</i>]</small>
+				{% endif %}
+				<b>
 			        <i>{{ greeting.author }}</i>
 			    </b>
 			    wrote:
@@ -37,7 +41,6 @@
 		    {% endfor %}
 			</p>
 		    <hr>
-			{% if not username == 'anonymous' %}
 			<a>Please leave your message here.</a>
 		    <form action="/greeting/sign" method="post">{% csrf_token %}
 	    	    <table cellpadding="10" >
@@ -47,11 +50,19 @@
 					</tr>
 					<tr>
 						<th></th>
-						<td><input type="submit" value="Submit" /></td>
+						<td>
+						{% if username == 'anonymous'%}
+						<input type="hidden" name="isprivate" value="0"/>
+						{% else %}
+						<label>
+						<input type="checkbox" name="isprivate" value="1"/>
+						private</label>
+						{% endif %}
+						<input type="submit" value="Submit" />
+						</td>
+
 				</table>
-		        
 		    </form>
-			{% endif %}
 		</div>
 		<hr id="r_v_hr" class="v_hr"/>
 		<div id="right_side">

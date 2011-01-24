@@ -1,0 +1,15 @@
+
+#blog-p { position: relative; width: 100%;}
+#blog-p #left_side{position: absolute; left: 0px; width: 500px;}
+#blog-p #right_side{position: absolute; right: 0px; top:0px; width: 500px;}
+#blog-p .v_hr{ position: absolute; left: 480px;}
+#blog-p #greeting {position: absolute; left: 230px; right: 230px;}
+#blog-p #greeting a {margin-left: 20px;}
+#blog-p #greeting form {position: relative;}
+#blog-p #greeting table {position:absolute; left: 20px; top: 20px; bottom: 10px; right:20px; width: 90%}
+#blog-p #greeting table td,#greeting table th{vertical-align: top; 
+		padding: 0px 5px 0px 5px; text-align:right;}
+#blog-p #greeting table textarea { width: 100%; border-color: #bbb;
+		-webkit-box-shadow: white 0px 1px;}
+#blog-p #greeting table textarea:hover { border-color: #999;}
+#blog-p #greetings { min-height: 300px;}
