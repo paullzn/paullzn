@@ -1,8 +1,8 @@
 
-#blog-p { position: relative; width: 100%;}
-#blog-p #left_side{position: absolute; left: 0px; width: 500px;}
-#blog-p #right_side{position: absolute; right: 0px; top:0px; width: 500px;}
-#blog-p .v_hr{ position: absolute; left: 480px;}
+#blog-p { position: ; width: 100%;}
+#blog-p #left_side{position: absolute; right: 50%; width: 500px; }
+#blog-p .v_hr{ position:relative absolute; left: 50%;}
+#blog-p #right_side{position: absolute; left: 50%; width: 500px;}
 #blog-p #greeting {position: absolute; left: 230px; right: 230px;}
 #blog-p #greeting a {margin-left: 20px;}
 #blog-p #greeting form {position: relative;}

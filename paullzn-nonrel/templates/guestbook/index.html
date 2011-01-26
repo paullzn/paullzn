@@ -2,32 +2,59 @@
 {% block title %}<title>Greeting</title>{% endblock %}
 {% block main %}
 
-	<div iv id="{{page}}-p">
-	 	<div id="left_side">
-			<p>
-				<img src="/media/images/he.jpg"/>
-			</p>
-			<p>I'm Paullzn, @Beijing.</p>
-			<p>
-				<b>Email</b><br/>
-				<a>paullzn /@/ gmail \.\ com</a>
-			</p>
-			<p>
-				<b>About</b><br/>
-					Senior student,<br>Department of Computer Science and Technology,<br>Tsinghua University.
-			</p>
-			<p>
-				<b>Interests</b><br/>
-				Web, Hiphop dancing, Movie, KTV...
-			</p>
-		</div>
-		<hr id="l_v_hr" class="v_hr"/>
-		<div id="greeting"/>
-	    	<h2>Welcome</h2>
-			<hr>
+	<table id="{{page}}-p">
+		<tr id="intro-tr">
+			<td id="intro-td">
+				<table id="intro">
+					<tr>
+						<td id="left_side">
+							<p>
+								<img src="/media/images/he.jpg"/>
+								<p>I'm Paullzn, @Beijing.</p>
+							</p>
+							
+							<p>
+								<b>Email</b><br/>
+								<a>paullzn /@/ gmail \.\ com</a>
+							</p>
+							<p>
+								<b>About</b><br/>
+									Senior student,<br>Department of Computer Science and Technology,<br>Tsinghua University.
+							</p>
+							<p>
+								<b>Interests</b><br/>
+								Web, Hiphop dancing, Movie, KTV...
+							</p>
+						</td>
+						<td id="vhr_td"><hr class="v_hr"/></td>
+						<td id="right_side">
+							<p>
+								<img src="/media/images/she.jpg"/>
+							</p>
+							<p><b>Name</b><br/>I'm Lisa, @Beijing</p>
+							<p>
+								<b>Email</b><br/>
+								<a>kongly0320 /@/ gmail \.\ com</a>
+							</p>
+							<p>
+								<b>About</b><br/>
+								Sophomore student,<br>School of Journalism and Communication,<br>Tsinghua University.
+							</p>
+							<p>
+								<b>Interests</b><br/>
+									Food, Books, Newspaper...
+							</p>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr id="greeting-tr"><td id="greeting-td">
+		<div id="greeting">
+			<hr id="hr">
+			<h3> Guest book.</h3>
 			<p id="greetings">
 	    	{% for greeting in greetings %}
-			    <br>
 				{% if greeting.isprivate == 1 %}		    
 					<small>[<b>{{ greeting.date }}</b>]</small>
 				{% else %}
@@ -38,13 +65,15 @@
 			    </b>
 			    wrote:
 			        {{ greeting.content }}
+				<br>
 		    {% endfor %}
 			</p>
+			
 		    <hr>
 			<a>Please leave your message here.</a>
-		    <form action="/greeting/sign" method="post">{% csrf_token %}
-	    	    <table cellpadding="10" >
-					<tr>
+			<table id="form-table" cellpadding="10" >
+				<form action="/greeting/sign" method="post">{% csrf_token %}
+	    	    	<tr>
 						<th width="20%">Comment:</th>
 						<td><textarea rows="4" name="content"></textarea></td>
 					</tr>
@@ -60,30 +89,10 @@
 						{% endif %}
 						<input type="submit" value="Submit" />
 						</td>
-
-				</table>
-		    </form>
+				</form>
+			</table>
 		</div>
-		<hr id="r_v_hr" class="v_hr"/>
-		<div id="right_side">
-			<p>
-				<img src="/media/images/she.jpg"/>
-			</p>
-			<p><b>Name</b><br/>I'm Lisa, @Beijing</p>
-			<p>
-				<b>Email</b><br/>
-				<a>kongly0320 /@/ gmail \.\ com</a>
-			</p>
-			<p>
-				<b>About</b><br/>
-				Sophomore student,<br>School of Journalism and Communication,<br>Tsinghua University.
-			</p>
-			<p>
-				<b>Interests</b><br/>
-					Food, Books, Newspaper...
-			</p>
-		</div>
-	</div>
+		</td></tr>
+	</table>
 	
-	<script type="javascript"></script>	
 {% endblock %}

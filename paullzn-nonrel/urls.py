@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^greeting/', include('guestbook.urls')),
 	(r'^blog/', include('blog.urls')),
 	(r'^auth/', include('auth.urls')),
+	(r'^jp/', include('jp.urls')),
     # auth specific urls
     #(r'^accounts/create_user/$', 'guestbook.views.create_new_user'),
 )
