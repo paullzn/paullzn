@@ -7,10 +7,7 @@ from guestbook.forms import CreateGreetingForm
 from guestbook.models import Greeting
 from lib import dateutil
 def list_greetings(request):
-	#greetings = cache.get(MEMCACHE_GREETINGS)
-	#if greetings is None:
 	greetings = Greeting.objects.all().order_by('-date')[:10]
-	#cache.add(MEMCACHE_GREETINGS, greetings)
 
 	try:
 		username = request.session['user']
@@ -20,14 +17,20 @@ def list_greetings(request):
 	displays = []
 	for greeting in greetings:
 		d = dateutil.date_to_local(greeting.date)
+
 		if username != 'anonymous' or greeting.isprivate == 0:
-			displays.append({'author': greeting.author, 'content': greeting.content, 'date': d, 'isprivate': greeting.isprivate})
+			displays.append({'author': greeting.author.username,\
+					'content': greeting.content,\
+					'date': d, \
+					'isprivate': greeting.isprivate})
+
 	return direct_to_template(request, 'guestbook/index.html',
-			{'username': username, 
+			{'username': username,
 			'greetings': displays,
 			'page': 'about'})
 
 from django.http import HttpResponseRedirect
+from auth.models import User
 
 def create_greeting(request):
 	if request.method == 'POST':
@@ -36,12 +39,14 @@ def create_greeting(request):
 		greeting.isprivate = request.POST.get('isprivate')
 		if greeting.isprivate == None:
 			greeting.isprivate = 0
+	
 	try:
-		greeting.author = request.session['user']
+		user_id = request.session['user_id']
 	except KeyError:
-		greeting.author = 'anonymous'
+		user_id = User.objects.all().filter( username='anonymous')[0].id
+	greeting.author = User.objects.get( id = user_id)
+	
 	greeting.save()
 	
-	cache.delete('greetings')
 	return HttpResponseRedirect('/greeting/')
   

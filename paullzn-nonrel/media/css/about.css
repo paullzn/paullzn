@@ -1,12 +1,14 @@
 
-#about-p {position: absolute; width: 1000px; float: left;}
+#about-p {position: relative; width: 1000px; float: left; background: url(/media/images/tl75.png)}
 #about-p td{ vertical-align: top;}
 #about-p #intro-tr {height: 400px;}
 #about-p #intro {margin: 0 auto; width: 1000px; height: 400px;}
-#about-p #left_side{ width: 500px; }
+#about-p #left_side{ position: relative; width: 500px; }
+#about-p #left_side img{ position:absolute; left: 270px; top: 80px;}
 #about-p #vhr_td{ width: 1px; height: 100%;}
 #about-p .v_hr { width: 1px; height: 400px;}
-#about-p #right_side{ width: 500px; }
+#about-p #right_side{ position: relative; width: 500px; }
+#about-p #right_side img{ position: absolute; right: 30px; top: 80px; }
 
 #about-p #hr {position: absolute; top: 450px; width: 100%;}
 

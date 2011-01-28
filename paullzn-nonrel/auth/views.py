@@ -1,6 +1,5 @@
 # Create your views here.
 
-
 from django.core.cache import cache
 from django.views.generic.simple import direct_to_template
 from django.http import HttpResponseRedirect
@@ -33,6 +32,7 @@ def login_do(request):
 	user = User.objects.all().filter(username=request.GET.get('name')).filter(password=request.GET.get('password'))
 	if user:
 		request.session['user'] = user[0].username
+		request.session['user_id'] = user[0].id
 		return HttpResponseRedirect('/greeting/')
 	else:
 	 	return HttpResponseRedirect('/auth/login')
@@ -40,6 +40,7 @@ def login_do(request):
 def logout(request):
 	try:
 		del request.session['user']
+		del request.session['user_id']
 	except KeyError:
 		pass
 	return HttpResponseRedirect('/greeting/')
