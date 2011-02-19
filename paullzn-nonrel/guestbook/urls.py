@@ -1,6 +1,9 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('guestbook.views',
-    (r'^$',     'list_greetings'),
-    (r'^sign$', 'create_greeting'),
+urlpatterns = patterns('blog.views',
+	(r'^$', 'index'),
+	(r'^status_up$', 'status_up'),
+ 	(r'^post$', 'create'),
+	(r'^edit$', 'edit'),
+	(r'^delete', 'delete')
 )
