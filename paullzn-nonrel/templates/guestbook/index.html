@@ -1,40 +1,136 @@
 {% extends "default/base.html" %}
-{% block title %}<title>Paullzn-blog</title>{% endblock %}
-
+{% block title %}<title>Paullzn-Greeting</title>{% endblock %}
 {% block main %}
 
-	<div id="{{page}}-p">
-	 	<div id="left_side">
-			<div class="header">
-				<img src="/media/images/he.jpg" height="85"/>
-				<b class="name">Paullzn</b> 
-				<p class="status"><b>Status:</b> {{p_status}}</p>
-				{% if username == 'paullzn' %}
-				<form action="/blog/status_up" method="post">
-					<textarea name="status" cols="30" rows="2"></textarea>
-					<input class="submit" type="submit" value="submit"/>
-				</form>
+	<table id="{{page}}-p">
+		<tr id="intro-tr">
+			<td id="intro-td">
+				<table id="intro">
+					<tr>
+						<td id="left_side">
+							<img src="/media/images/he.jpg"/>
+							<p>
+							<h2>&nbsp Zhaonan Li (Paullzn)</h2>
+							</p>
+							
+							<p>
+								I'm Zhaonan, a code farmer who believe we can to build colorful future by code.
+							</p>	
+							<p>
+								<b>My interests</b><br>
+								friends, traveling<br>
+								coding on the web or device,<br>
+								music, guitar, dancing, movie..
+							</p>
+							
+							<p>
+								<b>Email me:</b><br>
+								<a>paullzn /@/ gmail \.\ com</a>
+							</p>
+
+							<p>
+								<b>Around the web:</b><br>
+								<a href="http://www.renren.com/profile.do?id=229347900" target="_blank">RenRen</a>
+								&nbsp
+								<a href="http://www.linkedin.com/pub/zhaonan-li/22/230/377" target="_blank">Linkedin</a>
+								&nbsp
+								<a href="http://www.facebook.com/profile.php?id=100001100967761" target="_blank">Facebook</a>
+								&nbsp
+								<a href="http://twitter.com/#!/paullzn" target="_blank">Twitter</a>
+							</p>	
+							<p>
+								<b>Education:</b><br/>
+								- Bachelor (2007-2011)<br>
+								&nbsp Department of Computer Science and Technology, Tsinghua University.
+							</p>
+							<p>
+								<b>Career:</b><br>
+								- SDE intern at Hulu ( 2010.5 - now )
+							</p>
+						</td>
+						<td id="vhr_td"><hr class="v_hr"/></td>
+						<td id="right_side">
+							<img src="/media/images/she.jpg"/>
+							
+							<p><h2>&nbsp Lingyu Kong (Lisa)</h2></p>
+							
+							<p>I'm Lisa, who eager to find the truth of the world.</p>
+							
+							<p>
+								<b>My interests:</b><br>
+								food, traveling, <br>
+								newspaper, book, histroy, litterateur..
+							</p>
+								
+							<p>
+								<b>Email me:</b><br>
+								<a>kongly0320 /@/ gmail \.\ com</a>
+							</p>
+							<p>
+								<b>Around the web:</b><br>
+								<a href="http://www.renren.com/profile.do?id=284658452" target="_blank">RenRen</a>
+								&nbsp
+								<a href="http://t.sina.com.cn/1677086593" target="_blank">Sina micro blog</a>
+								&nbsp
+								<a href="http://cn.linkedin.com/pub/lingyu-kong/2a/1b/638" target="_blank">Linkedin</a>
+							</p>
+							<p>
+								<b>Education:</b><br>
+								- Bachelor (2009-2013)<br>
+								&nbsp School of Journalism and Communication, Tsinghua University.
+							</p>
+							<p>
+								<b>Career:</b><br>
+								- intern in South China Morning Post, beijing office. (2009.4 - 2009.9)	
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr id="greeting-tr"><td id="greeting-td">
+		<div id="greeting">
+			<hr id="hr">
+			<h3> Guest book.</h3>
+			<p id="greetings">
+	    	{% for greeting in greetings %}
+				{% if greeting.isprivate == 1 %}		    
+					<small>[<b>{{ greeting.date }}</b>]</small>
+				{% else %}
+					<small>[<i>{{ greeting.date }}</i>]</small>
 				{% endif %}
-			</div>
-			<div id="p_blog" class="blog_area">
-			</div>
-		</div>
-		<hr class="v_hr"/>
-		<div id="right_side">
-			<div class="header">
-				<img src="/media/images/she.jpg" height="85"/>
-				<b class="name">Lisa</b>
-				<p class="status"><b>Status:</b> {{ l_status }}</p>
-				{% if username == 'lisa' %}
-				<form action="/blog/status_up" method="post">
-					<textarea name="status" cols="30" rows="2"></textarea>
-					<input class="submit" type="submit" value="submit"/>
+				<b>
+			        <i>{{ greeting.author }}</i>
+			    </b>
+			    wrote:
+			        {{ greeting.content }}
+				<br>
+		    {% endfor %}
+			</p>
+			
+		    <hr>
+			<a>Please leave your message here.</a>
+			<table id="form-table" cellpadding="10" >
+				<form action="/greeting/sign" method="post">{% csrf_token %}
+	    	    	<tr>
+						<th width="20%">Comment:</th>
+						<td><textarea rows="4" name="content"></textarea></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td>
+						{% if username == 'anonymous'%}
+						<input type="hidden" name="isprivate" value="0"/>
+						{% else %}
+						<label>
+						<input type="checkbox" name="isprivate" value="1"/>
+						private</label>
+						{% endif %}
+						<input type="submit" value="Submit" />
+						</td>
 				</form>
-				{% endif %}
-			</div>
-			<div id="l_blog" class="blog_area">
-			</div>
+			</table>
 		</div>
-	</div>
+		</td></tr>
+	</table>
 	
 {% endblock %}
