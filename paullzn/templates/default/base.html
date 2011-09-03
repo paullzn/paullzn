@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" charset="utf-8">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+	<meta name="Author" content="Paullzn Inc." /> 
+	<meta name="viewport" content="width=1024" /> 
+	{% block title%}<title>Paullzn</title> {% endblock %}
+	<meta name="Keywords" content="Paullzn" /> 
+	<meta name="Description" content="Paullzn, personal web site. Blog, Album, Lab" />
+    {% block stylesheets %}
+    <link rel="stylesheet" href="/media/css/home.css" type="text/css" />
+    {% endblock %}
+	{% block js %}
+	{% endblock %}
+</head>
+<body id="home">
+    <div id="header">
+    {% block header%}
+    <div id="titleheader" class="headbar">
+        <h1 id="title">Paullzn Zone</h1>
+        <a id="title-descrip">Zhaonan & Lingyu's personal web site</a>
+		<p>
+			Welcome <b>{{ username }}</b> |
+			{% if username != 'anonymous' %}
+				[<a href="/auth/logout">sign out</a>]
+			{% else %}
+				[<a href="/auth/login">sign in</a>]
+			{% endif %}
+
+		</p>
+    </div>
+    {% endblock %}
+    {% block globalnav%}
+    <div id="globalnavbar">
+        <ul id="globalnav">
+<!--        	<li id="gn-home">
+            	<a href="/">Home</a>
+            </li>-->
+			<li id="gn-home">
+				<a href="/blog">Home</a>
+            </li>
+            <li id="gn-blog">
+                <a href="/blog">Blog</a>
+            </li>
+            <li id="gn-about">
+                <a href="/greeting">Greeting</a>
+			</li>
+			<li id="gn-jp">
+                <a href="/jp">Japanese</a>
+            </li>
+        </ul>
+    </div>
+    {% endblock %}
+    </div>
+	<div id="main">
+    {% block main %}
+        <div id="dashboard">
+        </div>
+        <hr>
+        <div id="detail_dashboard">
+            <div id="left_dashboard">
+                <p>This is Paullzn's place</p>
+                <p>Welcome!!!</p>
+            </div>
+            <hr id="v_hr"/>
+            <div id="right_dashboard">
+            </div>
+        </div>
+    {% endblock %}
+		
+	</div>
+    {% block footer %}
+    <div id="footer">
+			<a>Copyright 2010-2011 Paullzn. Please </a><a href="mailto:paullzn@gmail.com">ask</a><a> before you take.</a>
+	</div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+@import "blog.css";
+@import "about.css";
+@import "login.css";
+@import "jp.css";
+
+* { margin: 0; padding: 0}
+
+body { min-width: 1000px;
+       position: relative;	
+	  overflow: auto;
+	  font: normal normal normal 13px/1.5 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+      background: #bfbfbf url(/media/images/2.jpg) no-repeat fixed 50% 50%;
+}
+p { margin: 10px 20px 10px 20px; color: #444444;}
+a,b,h3,h2,th,td{ color: #444;}
+
+#header { position:fixed; height: 60px; top:0px; left:0px; z-index: 5; width: 100%; background: url(/media/images/2.jpg) no-repeat fixed 50% 50%;}
+#titleheader { position:fixed; height: 40px; top:0px; z-index: 10; width: 100%; background: url(/media/images/td50.png); border-bottom: solid 1px #666;}
+#titleheader p { float:right; margin-top: 10px; padding: 0;}
+#titleheader a:hover {color: #222;}
+#title { position:absolute; left: 40px; top: 5px; text-align: center; color: #222;}
+#title-descrip { position:absolute; left: 250px; top: 20px; color: #333}
+
+#globalnavbar { position:fixed; width: 100%; height: 20px; top:40px; z-index: 10; background: url(/media/images/td25.png); }
+#globalnav { position:absolute; left: 250px; height: 20px; list-style-type: none; line-height: 20px; width: 500px; padding:0px; text-align:center}
+#globalnav li{ float: left; position:relative;}
+#globalnav li a{ display:block; text-decoration: none; width: 120px; color:#444;}
+#globalnav li:hover { background: url(/media/images/td50.png);}
+#globalnav li a:hover{color: #FFF}
+
+#main{ margin: 60px auto; width: 1000px; }
+
+.v_hr{float: left; width:0px;}
+
+#footer{position: relative; width: 100%; margin-top: 20px; bottom: 0px; text-align: center;}
+#footer a{font-size: 12px;}
+
