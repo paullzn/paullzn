@@ -3,36 +3,19 @@
 {% block main %}
 
 	<div id="{{page}}-p">
-	 	<div id="left_side">
+	 	<div id="left_side" class="side">
 			<div class="header">
-				<img src="/media/images/he.jpg" height="85"/>
+				<img src="/media/images/he.jpg" height="150"/>
 				<b class="name">Paullzn</b> 
-				<p class="status"><b>Status:</b> {{p_status}}</p>
-				{% if username == 'paullzn' %}
-				<form action="/blog/status_up" method="post">
-					<textarea name="status" cols="30" rows="2"></textarea>
-					<input class="submit" type="submit" value="submit"/>
-				</form>
-				{% endif %}
-			</div>
-			<div id="p_blog" class="blog_area">
 			</div>
 		</div>
-		<hr class="v_hr"/>
-		<div id="right_side">
+		<div id="right_side" class="side">
 			<div class="header">
-				<img src="/media/images/she.jpg" height="85"/>
+				<img src="/media/images/she.jpg" height="150"/>
 				<b class="name">Lisa</b>
-				<p class="status"><b>Status:</b> {{ l_status }}</p>
-				{% if username == 'lisa' %}
-				<form action="/blog/status_up" method="post">
-					<textarea name="status" cols="30" rows="2"></textarea>
-					<input class="submit" type="submit" value="submit"/>
-				</form>
-				{% endif %}
 			</div>
-			<div id="l_blog" class="blog_area">
-			</div>
+		</div>
+		<div id="blog_main">
 		</div>
 	</div>
 	
