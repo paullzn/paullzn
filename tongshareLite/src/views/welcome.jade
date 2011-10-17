@@ -1,0 +1,15 @@
+h1= title
+script(type='text/javascript')
+    var uiOpts = {
+        url : "http://graph.renren.com/oauth/authorize",
+        display : "iframe",
+        params : {
+            "response_type" : "token",
+            "client_id" : #{APP_ID}, 
+        },
+        onSuccess: function(r){
+            top.location =  "#{RENREN_APP_URL}";
+        },
+        onFailure: function(r){} 
+        };
+    Renren.ui(uiOpts);
